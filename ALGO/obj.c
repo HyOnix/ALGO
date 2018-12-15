@@ -9,11 +9,27 @@
 
 
 
-void FillTab(int tab[t_tab][t_tab],int inc){
+void FillTab(int tab[t_tab][t_tab],char inc){
 
         for (int i = 0; i < t_tab; i++) {
                 for(int j= 0; j < t_tab; j++) {
-                        tab[i][j]=inc;
+                        if (i==0 || j==0 ) {
+                                if (i+j==0) {
+                                        tab[i][j]='/';
+                                }
+                                else{
+                                        if (i!=0) {
+                                                tab[i][j]=i-1+'0';
+                                        }
+                                        if (j!=0) {
+                                                tab[i][j]=j-1+'A';
+                                        }
+
+                                }
+                        }
+                        else{
+                                tab[i][j]=inc;
+                        }
                 }
         }
 
@@ -37,19 +53,25 @@ void foo( int input){
                 foo(-1*input);
         }
         if(0 < input) {
-                reste = input % 10;
-                foo((input-reste)/10);
+                reste = input % t_tab;
+                foo((input-reste)/t_tab);
                 putchar('0'+reste);
         }
 }
 
-void putIntTab( int tab[10][10]){
-        int index;
-        for( index=0; index < 100; index++) {
-                if (index % 10 == 0) {
-                        putchar('\n');
+void putIntTab( int tab[t_tab][t_tab]){
+
+        for(int i=0; i < t_tab; i++) {
+                putchar('\n');
+                for (int y = 0; y < t_tab; y++) {
+                        putchar( tab[i][y]);
+                        putchar(' ');
                 }
-                putInt( tab[ index % 10 ][( index - index % 10)/10]);
-                putchar(' ');
         }
+}
+
+void AddObject( int tab[t_tab][t_tab], char i, char j){
+
+        tab[j-'0'+1][i-'A'+1]='H';
+
 }
