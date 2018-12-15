@@ -69,9 +69,20 @@ void putIntTab( int tab[t_tab][t_tab]){
                 }
         }
 }
+int cst;
+void AddObject( int tab[t_tab][t_tab], char i, char j,char mark){
 
-void AddObject( int tab[t_tab][t_tab], char i, char j){
+        if(i<j) {
+                cst=i;
+                i=j;
+                j=cst;
+        }
 
-        tab[j-'0'+1][i-'A'+1]='H';
+        if(i>='A' && i<='J') {
+                tab[j-'0'+1][i-'A'+1]=mark;
+        }
+        if(i>='a' && i<='j') {
+                tab[j-'0'+1][i-'a'+1]=mark;
+        }
 
 }

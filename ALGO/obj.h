@@ -45,6 +45,6 @@ void putIntTab(int tab[t_tab][t_tab]);
  */
 void menu(char menu_option);
 
-void AddObject(int tab[t_tab][t_tab],char i , char j);
+void AddObject(int tab[t_tab][t_tab],char i , char j,char mark);
 
 #endif
