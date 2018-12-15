@@ -6,7 +6,6 @@ int main (void)
 {
         int tab[t_tab][t_tab]={{}};
         int menu_option;
-        int choice;
         printf("-                                        -\n");
         printf("      PROJET ALGO : BATAILLE NAVALE !!! \n");
         printf("-Crée par :                              -\n");
