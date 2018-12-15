@@ -16,17 +16,37 @@ int main (void)
         int tab[t_tab][t_tab]={{}};
         int menu_option='0';
         char choice= '1';
-        char i,j;
+        char i,j,mark;
         FillTab(tab,choice);
         printf("-                                        -\n");
         printf("      PROJET ALGO : BATAILLE NAVALE !!! \n");
         printf("-Crée par :      MOI  2                  -\n");
         printf("------------------------------------------\n");
+        printf("\n\n");
+        putIntTab(tab);
+        printf("\n\n" );
+        printf("____________________________________________\n");
+        printf("CHOIX DU CARACTERE DE LA GRILLE\n");
+        printf("____________________________________________\n");
+        printf("\n" );
+        printf("CARACTERE :\t" );
+        menu_option=getchar();
+        getchar();
+        choice=menu_option;
+        FillTab(tab,choice);
+        menu_option ='m';
+        printf("\n\n" );
+        printf("____________________________________________\n");
+        printf("CHOIX DU CARACTERE DE LE L'OBJET\n");
+        printf("____________________________________________\n");
+        printf("\n" );
+        printf("CARACTERE :\t" );
+        mark=getchar();
+        getchar();
+
 
         do {
-                if (menu_option =='m') {
-                        system("clear");
-                }
+                system("clear");
                 printf("\n");
                 putIntTab(tab);
                 printf("\n\n" );
@@ -35,9 +55,10 @@ int main (void)
                 printf("__________________________________________\n");
                 printf("\n" );
                 printf("0.CHOIX DU CARACTERE DE LA GRILLE\n");
-                printf("1.AFFICHER TAB %c \n",choice);
+                printf("1.      \n");
                 printf("2.AFFICHER TAB +1 \n");
                 printf("3.AUTO DEFFILEMENT  \n");
+
                 printf("5. Quitter.\n");
                 printf("Choisissez une option:\n");
                 printf("------------------------------------------\n");
@@ -48,23 +69,24 @@ int main (void)
                 switch(menu_option) {
                 case '4':
                         system("clear");
+                        printf("\n" );
                         putIntTab(tab);
+                        printf("\n" );
                         printf("\n" );
                         printf("____________________________________________\n");
                         printf("POSITION OBJET puis retour au menu\n");
                         printf("____________________________________________\n");
                         printf("\n" );
-                        printf("CARACTERE :\t" );
+                        printf("POSITION LETTRE|NOMBRE:\t" );
                         i=getchar();
                         j=getchar();
                         getchar();
-                        AddObject(tab,  i, j);
+                        AddObject(tab,  i, j,mark);
                         menu_option='m';
+                        printf("\n" );
                         break;
                 case '1':
-                        system("clear");
-                        putIntTab(tab);
-                        printf("\n" );
+
                         break;
                 case '0':
                         system("clear");
@@ -85,13 +107,11 @@ int main (void)
                         choice++;
                         system("clear");
                         FillTab(tab,choice);
-                        putIntTab(tab);
-                        printf("\n" );
                         break;
                 case '3':
 
                         do {
-
+                                printf("\n" );
                                 putIntTab(tab);
                                 printf("\n" );
                                 printf("\n" );
@@ -115,7 +135,9 @@ int main (void)
                         if (menu_option=='q') {
                                 menu_option='5';
                         }
+                        printf("\n" );
                         system("clear");
+                        printf("\n" );
                         putIntTab(tab);
                         printf("\n" );
                         sleep(1);
