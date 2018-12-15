@@ -8,7 +8,7 @@ int main (void)
         int menu_option;
         printf("-                                        -\n");
         printf("      PROJET ALGO : BATAILLE NAVALE !!! \n");
-        printf("-Crée par :      MOI                     -\n");
+        printf("-Crée par :      MOI  2                  -\n");
         printf("------------------------------------------\n");
 
 
