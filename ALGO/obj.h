@@ -1,8 +1,10 @@
 #ifndef obj_h
 #define obj_h
-#define t_tab 10
+#define t_tab 11
 
-void FillTab(int tab[t_tab][t_tab],int inc);
+
+
+void FillTab(int tab[t_tab][t_tab],char inc);
 
 
 /**
@@ -30,7 +32,7 @@ void foo( int input);
  * \param[in] tab: tableau à afficher
  * \return rien
  */
-void putIntTab( int tab[10][10]);
+void putIntTab(int tab[t_tab][t_tab]);
 
 /**
  * \fn double getDouble( void )
@@ -42,5 +44,7 @@ void putIntTab( int tab[10][10]);
    double getDouble( void );
  */
 void menu(char menu_option);
+
+void AddObject(int tab[t_tab][t_tab],char i , char j);
 
 #endif
