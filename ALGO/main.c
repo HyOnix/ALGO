@@ -1,16 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <time.h>
-
-
+#include "obj.c"
+#include <unistd.h>
 
 
 int main (void)
 {
+        int tab[t_tab][t_tab]={{}};
         int menu_option;
+        int choice;
         printf("-                                        -\n");
         printf("      PROJET ALGO : BATAILLE NAVALE !!! \n");
         printf("-Crée par :                              -\n");
@@ -21,7 +17,7 @@ int main (void)
                 printf("\n" );
                 printf("__________________________________________\n");
                 printf("-                 MENU                   -\n");
-                printf("1. \n");
+                printf("1.AFFICHER TAB \n");
                 printf("2. \n");
                 printf("3. \n");
                 printf("4. \n");
@@ -34,8 +30,22 @@ int main (void)
                 switch(menu_option) {
 
                 case '1':
+                        system("clear");
+                        for (int choice=0; choice < 10; choice++) {
+
+                                FillTab(tab,choice);
+                                putIntTab(tab);
+                                sleep(1);
+                                printf("\n" );
+                                if (choice!=9) {
+                                        system("clear");
+                                }
+
+                        }
+
                         break;
                 case '2':
+                        system("clear");
                         break;
                 case '3':
                         break;
