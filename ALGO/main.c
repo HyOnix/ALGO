@@ -57,5 +57,6 @@ int main (void)
                         break;
 
                 }
-        } while(menu_option !='5');
+        }
+        while(menu_option !='5');
 }
