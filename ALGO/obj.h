@@ -47,5 +47,4 @@ void menu(char menu_option);
 
 void AddObject(char tab[t_tab][t_tab],char i , char j,char mark,char map);
 void AddBoat(char tab[t_tab][t_tab],char i , char j,char mark,int lgr,char sens);
-
 #endif

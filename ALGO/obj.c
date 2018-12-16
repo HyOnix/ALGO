@@ -1,3 +1,4 @@
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -97,6 +98,9 @@ void AddObject( char tab[t_tab][t_tab], char i, char j,char mark,char boat){
 
 
 }
+int z;
+int x;
+int c;
 void AddBoat( char tab[t_tab][t_tab], char i, char j,char mark,int lgr,char sens){
 
         if(i<j) {
@@ -112,16 +116,20 @@ void AddBoat( char tab[t_tab][t_tab], char i, char j,char mark,int lgr,char sens
         if(i>='a' && i<='j') {
                 i=(i-'a');
         }
-        if (sens=='h') {
-                for (int z = 0; z < lgr; z++) {
-                        tab[j-'0'+1][i+1+z]=mark;
+        z=0;
+        x=0;
+        for (c= 0; c < lgr; c++) {
+                if (sens=='h') {
+                        x=c;
                 }
-        }
-        else{
-                for (int z = 0; z < lgr; z++) {
-                        tab[j-'0'+1+z][i+1]=mark;
+                else{
+                        z=c;
                 }
-        }
+                if(tab[j-'0'+1+z][i+1+x]!=mark) {
+                        tab[j-'0'+1+z][i+1+x]=mark;
+                }
+                else{printf("ERROR\n"); sleep(1);}
 
 
+        }
 }

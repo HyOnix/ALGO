@@ -14,16 +14,18 @@ int main (void)
         system("clear");
         printf("\n");
         char tab[t_tab][t_tab]={{}};
-        int menu_option='0',lng;
+        int menu_option='0',lng,count;
         char choice= '.',test;
-        char mark='x',boat='0',disp;
+        char mark='o',boat='H',disp;
         char i='N',j='A';
+        int cuir=1,croi=2,torp=3,sous=4;
         FillTab(tab,choice);
-        AddObject(tab,'e','5','o',boat);
+        AddObject(tab,'e','5',mark,boat);
         AddBoat(tab,'b','2',boat,3,'l');
         AddBoat(tab,'h','3',boat,2,'h');
         AddBoat(tab,'e','4',boat,4,'l');
-        AddObject(tab,'b','3','o',boat);
+        AddObject(tab,'b','3',mark,boat);
+        AddObject(tab,'h','0',mark,boat);
         printf("-                                        -\n");
         printf("      PROJET ALGO : BATAILLE NAVALE !!! \n");
         printf("-Crée par : Quentin HENRY\n");
@@ -32,31 +34,52 @@ int main (void)
         putIntTab(tab);
         printf("\n\n" );
         printf("____________________________________________\n");
-        printf("CHOIX DU CARACTERE DE LA GRILLE\n");
+        printf("MODE\n");
         printf("____________________________________________\n");
-        printf("\n" );
-        printf("CARACTERE :\t" );
+        printf("0.AUTO\n");
+        printf("1.MODE CONFIG\n");
+        printf("--------------------------------------------\nChoix :\t ");
         menu_option=getchar();
         getchar();
-        choice=menu_option;
-        FillTab(tab,choice);
-        menu_option ='m';
-        printf("\n\n" );
-        printf("____________________________________________\n");
-        printf("CHOIX DU CARACTERE DU TIR                               \n");
-        printf("____________________________________________\n");
-        printf("\n" );
-        printf("CARACTERE :\t" );
-        mark=getchar();
-        getchar();
-        printf("\n\n" );
-        printf("____________________________________________\n");
-        printf("CHOIX DU CARACTERE DU BOAT                            \n");
-        printf("____________________________________________\n");
-        printf("\n" );
-        printf("CARACTERE :\t" );
-        boat=getchar();
-        getchar();
+        switch (menu_option) {
+        case '1':
+                printf("____________________________________________\n");
+                printf("CHOIX DU CARACTERE DE LA GRILLE\n");
+                printf("____________________________________________\n");
+                printf("\n" );
+                printf("CARACTERE :\t" );
+                menu_option=getchar();
+                getchar();
+                choice=menu_option;
+                FillTab(tab,choice);
+                menu_option ='m';
+                printf("\n\n" );
+                printf("____________________________________________\n");
+                printf("CHOIX DU CARACTERE DU TIR                               \n");
+                printf("____________________________________________\n");
+                printf("\n" );
+                printf("CARACTERE :\t" );
+                mark=getchar();
+                getchar();
+                printf("\n\n" );
+                printf("____________________________________________\n");
+                printf("CHOIX DU CARACTERE DU BOAT                            \n");
+                printf("____________________________________________\n");
+                printf("\n" );
+                printf("CARACTERE :\t" );
+                boat=getchar();
+                getchar();
+                break;
+        case '0':
+                FillTab(tab,choice);
+                break;
+        default:
+                printf("Mauvaise entrer !!!\n");
+                sleep(1);
+                system("clear");
+                break;
+        }
+
 
 
         do {
@@ -64,7 +87,7 @@ int main (void)
                 printf("\n");
                 putIntTab(tab);
                 printf("\n\n" );
-                printf("DERNIER TIR : %c%c\n",i,j);
+                printf("DERNIERE ACTION : %c%c\n",i,j);
                 printf("__________________________________________\n");
                 printf("-                 MENU                   -\n");
                 printf("__________________________________________\n");
@@ -75,6 +98,7 @@ int main (void)
                 printf("3.AUTO DEFFILEMENT  \n");
                 printf("4.POSITION TIR  \n");
                 printf("5.POSITION BOAT  \n");
+                printf("s.STRATEGIE/PLACEMENT  \n");
                 printf("8.TEST CASE \n");
                 printf("9. Quitter.\n");
                 printf("Choisissez une option:\n");
@@ -84,6 +108,72 @@ int main (void)
                 printf("\n" );
                 system("clear");
                 switch(menu_option) {
+                case 's':
+                        count=10;
+                        FillTab(tab,choice);
+                        do {
+                                printf("\n" );
+                                system("clear");
+                                printf("\n" );
+                                putIntTab(tab);
+                                printf("\n" );
+                                printf("\n" );
+                                printf("Arsenal : %i\n",count);
+                                printf("____________________________________________\n");
+                                printf("SELECT YOUR BOAT\n");
+                                printf("c.CUIRASSE %i\n",cuir );
+                                printf("r.CROISEURS %i\n",croi );
+                                printf("t.TORPILLEURS %i\n",torp );
+                                printf("s.SOUS-MARIN %i\n",sous);
+                                printf("____________________________________________\n");
+                                printf("\nChoix:\t" );
+                                menu_option=getchar();
+                                getchar();
+
+                                system("clear");
+                                printf("\n" );
+                                putIntTab(tab);
+                                printf("\n" );
+                                printf("\n" );
+                                printf("____________________________________________\n");
+                                printf("STRATEGIE\n");
+                                printf("____________________________________________\n");
+                                printf("\n" );
+                                printf("POSITION:\t" );
+                                i=getchar();
+                                j=getchar();
+                                getchar();
+                                if(menu_option!='s') {
+                                        printf("DIPOSITON horizontal(h)/vertical(v):\t" );
+                                        disp=getchar();
+                                        getchar();
+                                }
+
+                                switch (menu_option) {
+                                case 'c':
+                                        AddBoat(tab,i,j,boat,4,disp);
+                                        cuir--;
+                                        break;
+                                case 'r':
+                                        AddBoat(tab,i,j,boat,3,disp);
+                                        croi--;
+                                        break;
+                                case 't':
+                                        AddBoat(tab,i,j,boat,2,disp);
+                                        torp--;
+                                        break;
+                                case 's':
+                                        AddBoat(tab,i,j,boat,1,disp);
+                                        sous--;
+                                        break;
+
+
+                                }
+                                count=cuir+croi+sous+torp;
+                                printf("\n" );
+                        } while (count>0);
+
+                        break;
                 case '4':
                         system("clear");
                         printf("\n" );
@@ -125,12 +215,6 @@ int main (void)
                         AddBoat(tab,  i, j,boat,lng,disp);
                         menu_option='m';
                         printf("\n" );
-                        /*test pos*/
-                        for (int i = 0; i < t_tab; i++) {
-                                for(int j= 0; j < t_tab; j++) {
-
-                                }
-                        }
                         break;
                 case '1':
                         system("clear");
