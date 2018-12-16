@@ -4,7 +4,7 @@
 
 
 
-void FillTab(int tab[t_tab][t_tab],char inc);
+void FillTab(char tab[t_tab][t_tab],char inc);
 
 
 /**
@@ -32,7 +32,7 @@ void foo( int input);
  * \param[in] tab: tableau à afficher
  * \return rien
  */
-void putIntTab(int tab[t_tab][t_tab]);
+void putIntTab(char tab[t_tab][t_tab]);
 
 /**
  * \fn double getDouble( void )
@@ -45,6 +45,7 @@ void putIntTab(int tab[t_tab][t_tab]);
  */
 void menu(char menu_option);
 
-void AddObject(int tab[t_tab][t_tab],char i , char j,char mark);
+void AddObject(char tab[t_tab][t_tab],char i , char j,char mark,char map);
+void AddBoat(char tab[t_tab][t_tab],char i , char j,char mark,int lgr,char sens);
 
 #endif

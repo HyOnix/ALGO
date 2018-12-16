@@ -9,7 +9,7 @@
 
 
 
-void FillTab(int tab[t_tab][t_tab],char inc){
+void FillTab(char tab[t_tab][t_tab],char inc){
 
         for (int i = 0; i < t_tab; i++) {
                 for(int j= 0; j < t_tab; j++) {
@@ -59,10 +59,11 @@ void foo( int input){
         }
 }
 
-void putIntTab( int tab[t_tab][t_tab]){
+void putIntTab( char tab[t_tab][t_tab]){
 
         for(int i=0; i < t_tab; i++) {
                 putchar('\n');
+                putchar('\t');
                 for (int y = 0; y < t_tab; y++) {
                         putchar( tab[i][y]);
                         putchar(' ');
@@ -70,7 +71,7 @@ void putIntTab( int tab[t_tab][t_tab]){
         }
 }
 int cst;
-void AddObject( int tab[t_tab][t_tab], char i, char j,char mark){
+void AddObject( char tab[t_tab][t_tab], char i, char j,char mark,char boat){
 
         if(i<j) {
                 cst=i;
@@ -79,10 +80,48 @@ void AddObject( int tab[t_tab][t_tab], char i, char j,char mark){
         }
 
         if(i>='A' && i<='J') {
-                tab[j-'0'+1][i-'A'+1]=mark;
+
+                i=(i-'A');
         }
         if(i>='a' && i<='j') {
-                tab[j-'0'+1][i-'a'+1]=mark;
+                i=(i-'a');
         }
+        if (tab[j-'0'+1][i+1]==boat) {
+                tab[j-'0'+1][i+1]='!';
+        }
+        else{
+                tab[j-'0'+1][i+1]=mark;
+        }
+
+
+
+
+}
+void AddBoat( char tab[t_tab][t_tab], char i, char j,char mark,int lgr,char sens){
+
+        if(i<j) {
+                cst=i;
+                i=j;
+                j=cst;
+        }
+
+        if(i>='A' && i<='J') {
+
+                i=(i-'A');
+        }
+        if(i>='a' && i<='j') {
+                i=(i-'a');
+        }
+        if (sens=='h') {
+                for (int z = 0; z < lgr; z++) {
+                        tab[j-'0'+1][i+1+z]=mark;
+                }
+        }
+        else{
+                for (int z = 0; z < lgr; z++) {
+                        tab[j-'0'+1+z][i+1]=mark;
+                }
+        }
+
 
 }
