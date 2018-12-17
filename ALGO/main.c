@@ -125,7 +125,7 @@ int main (void)
                                 printf("r.CROISEURS %i\n",croi );
                                 printf("t.TORPILLEURS %i\n",torp );
                                 printf("s.SOUS-MARIN %i\n",sous);
-                                printf("____________________________________________\n");
+                                printf("_____________________ _______________________\n");
                                 printf("\nChoix:\t" );
                                 menu_option=getchar();
                                 getchar();
