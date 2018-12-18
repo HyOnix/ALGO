@@ -28,7 +28,7 @@ int main (void)
         AddObject(tab,'h','0',mark,boat);
         printf("-                                        -\n");
         printf("      PROJET ALGO : BATAILLE NAVALE !!! \n");
-        printf("-Crée par : L'ALGO C RIGOLO et moi  \n");
+        printf("-Crée par : L''ALGO C RIGOLO et moi  \n");
         printf("------------------------------------------\n");
         printf("\n\n");
         putIntTab(tab);
