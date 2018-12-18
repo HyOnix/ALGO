@@ -81,7 +81,6 @@ int main (void)
         }
 
 
-
         do {
                 system("clear");
                 printf("\n");

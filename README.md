@@ -10,5 +10,7 @@ La bataille navale, appelée aussi touché-coulé, est un jeu de société dans 
 1 torpilleur (2 cases)
 
 sur une grille de 10²
-avec plusieur niveau de difficulté 
+Qu'elle soit en version électronique ou non, la grille de jeu est toujours la même, numérotée de 1 à 10 verticalement et de A à J horizontalement.
+
+avec plusieur niveau de difficulté : FACILE , MEDIUM , HUMAN
 1 joueur , 1 littleIA.
